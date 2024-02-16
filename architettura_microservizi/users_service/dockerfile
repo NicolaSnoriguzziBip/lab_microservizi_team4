@@ -1,0 +1,17 @@
+# Use the official Python base image
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /app-docker
+
+# Copy folder src 
+COPY src/ .
+
+# Install any necessary dependencies
+RUN pip install requirements.txt
+
+# Set command to run the microservice
+CMD ["python3", "./script.py"]
+
+# Expose the port the app runs
+EXPOSE 5000
